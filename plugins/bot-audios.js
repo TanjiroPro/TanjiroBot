@@ -75,9 +75,78 @@ let vn = './media/audios/himno-potaxie.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true })}
 
+if (chat.audios && m.text.match(/(bienven)/gi)) {
+let vn = './media/audios/Bienvenido.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+conn.sendMessage(m.chat, { audio: { url: vn }, contextInfo: { "externalAdReply": { "title": wm, "body": ``, "previewType": "PHOTO", "thumbnailUrl": null,"thumbnail": imagen1, "sourceUrl": `饾檧饾檱饾檮饾檹饾檧 饾樈饾檴饾檹 饾檪饾檱饾檴饾樈饾樇饾檱`, "showAdAttribution": true}}, ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: m })}
+
+if (chat.audios && m.text.match(/(chao|adios|rip|eliminar|eliminenle|basura|pablo)/gi)) {    
+let vn = './media/audios/basura.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
+    
+if (chat.audios && m.text.match(/(El Toxico|El t贸xico|Toxico|t贸xico|malo|mala|estupido|estupida)/gi)) {    
+let vn = './media/audios/El Toxico.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}    
+    
+if (chat.audios && m.text.match(/(Bebe|fiu fiu|bebito fiu fiu|Bebito)/gi)) {    
+let vn = './media/audios/Bebito.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}      
+
+    if (chat.audios && m.text.match(/(confirma|confirmen)/gi)) {    
+let vn = './media/audios/confirma.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}      
+    
+ if (chat.audios && m.text.match(/(borracha|alcoh贸licos|alcoh贸licas|borracho)/gi)) {    
+let vn = './media/audios/guanchaca.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}      
+    
+if (chat.audios && m.text.match(/(Motivacion|Motivaci贸n|grupo muerto)/gi)) {    
+let vn = './media/audios/Motivacion.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
+    
+if (chat.audios && m.text.match(/(mucho spam|spam)/gi)) {    
+let vn = './media/audios/Muchachos.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
+
+    
+if (chat.audios && m.text.match(/(Goku pervertido|pervertido|pervertida|goku|sexo|Sexo|antojen|antogen|馃槇|馃懣|馃憠馃憣|馃憣馃憟)/gi)) {    
+let vn = './media/audios/Ya antojaron.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}    
+    
+if (chat.audios && m.text.match(/(miarda de bot|mierda de bot|mearda de bot|Miarda de Bot|Mierda de Bot|Mearda de Bot|bot puto|Bot puto|Bot CTM|Bot ctm|bot CTM|bot ctm|bot pendejo|Bot pendejo|bot de mierda)/gi)) {    
+let vn = './media/audios/insultar.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}    
+
+
+if (chat.audios && m.text.match(/(vetealavrg|vete a la vrg|vete a la verga|vrg)/gi)) {    
+let vn = './media/audios/vete a la verga.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
+
+if (chat.audios && m.text.match(/(te amo)/gi)) {    
+let vn = './media/audios/teamo.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
+    
+
+    
+if (chat.audios && m.text.match(/(trabajo|trabajar|chamba|chambear)/gi)) {    
+let vn = './media/audios/miprimerachamba.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
+
 
 return !0 }
 handler.tags = ['audios']
-handler.help = ['ara ara','fino señores','bañate','buenos dias','diagnóstico gay','elmo','puto','gemido','pobre perra','manco','miau','traka','turip ip','himno potaxie']
+handler.help = ['ara ara','fino señores','bañate','buenos dias','diagnóstico gay','elmo','puto','gemido','pobre perra','manco','miau','traka','turip ip','himno potaxie','Bienvenido','trabajar','te amo','vete a la vrg','bot de mierda','Goku pervertido','spam','Bebe','confirma','borracha','Motivacion','adios','Toxico']
 handler.register = true
 export default handler
