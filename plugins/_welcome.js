@@ -1,64 +1,23 @@
-import { WAMessageStubType } from '@whiskeysockets/baileys';
-import fetch from 'node-fetch';
+import {WAMessageStubType} from '@whiskeysockets/baileys'
+import fetch from 'node-fetch'
 
-export async function before(m, { conn, participants, groupMetadata }) {
-  if (!m.messageStubType || !m.isGroup) return true;
+export async function before(m, {conn, participants, groupMetadata}) {
+  if (!m.messageStubType || !m.isGroup) return !0;
+  let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/CkXP.jpg')
+  let img = await (await fetch(`${pp}`)).buffer()
+  let chat = global.db.data.chats[m.chat]
 
-  let vn = 'https://qu.ax/cUYg.mp3';
-  let vn2 = 'https://qu.ax/pnSf.m4a';
-  let welc = welcome;
-  let adi = adios;
-  let chat = global.db.data.chats[m.chat];
-  const getMentionedJid = () => {
-    return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
-  };
-
-  let who = m.messageStubParameters[0] + '@s.whatsapp.net';
-  let user = global.db.data.users[who];
-
-  let userName = user ? user.name : await conn.getName(who);
-
-  if (chat.welcome && m.messageStubType === 27) {
-    this.sendMessage(m.chat, {
-      audio: { url: vn },
-      contextInfo: {
-        mentionedJid: getMentionedJid(),
-        "externalAdReply": {
-          "thumbnail": welc,
-          "title": "  ͟͞ 𝐁 𝐈 𝐄 𝐍 𝐕 𝐄 𝐍 𝐈 𝐃 𝐎 ͟͞  ",
-          "body": `${userName}!`,
-          "previewType": "PHOTO",
-          "thumbnailUrl": null,
-          "showAdAttribution": true,
-          sourceUrl: [yt, md, channel].sort(() => 0.5 - Math.random())[0]
-        }
-      },
-      ptt: true,
-      mimetype: 'audio/mpeg',
-      fileName: 'welcome.mp3'
-    }, { quoted: fkontak });
+  if (chat.welcome && m.messageStubType == 27) {
+    let welcome = `┌─★ 𝗧𝗮𝗻𝗷𝗶𝗿𝗼 𝗕𝗼𝘁 - 𝗠𝗗 \n│「 Bienvenido 」\n└┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │👾  Bienvenido a\n   │👾  ${groupMetadata.subject}\n   └───────────────┈ ⳹`
+await conn.sendMini(m.chat, packname, textbot, welcome, img, img, canal, estilo)
   }
 
-  if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
-    this.sendMessage(m.chat, {
-      audio: { url: vn2 },
-      contextInfo: {
-        mentionedJid: getMentionedJid(),
-        "externalAdReply": {
-        "thumbnail": adi,
-        "title": '  ͟͞ 𝐀 𝐃 i 𝐎 𝐒 ͟͞  ',
-        "body": `${userName}, se despide.`,
-        "previewType": "PHOTO",
-          "showAdAttribution": true,
-          "containsAutoReply": true,
-         "thumbnailUrl": null,
-          "showAdAttribution": true,
-          "sourceUrl": redes
-        }
-      },
-      ptt: true,
-      mimetype: 'audio/mpeg',
-      fileName: 'bye.mp3'
-    }, { quoted: fkontak });
+  if (chat.welcome && m.messageStubType == 28) {
+    let bye = `┌─★ 𝗧𝗮𝗻𝗷𝗶𝗿𝗼 𝗕𝗼𝘁 - 𝗠𝗗 \n│「 ADIOS 👋 」\n└┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │👾  Se fue\n   │👾 Jamás te quisimos aquí\n   └───────────────┈ ⳹`
+await conn.sendMini(m.chat, packname, textbot, bye, img, img, canal, estilo)
   }
-}
+
+  if (chat.welcome && m.messageStubType == 32) {
+    let kick = `┌─★ 𝗧𝗮𝗻𝗷𝗶𝗿𝗼 𝗕𝗼𝘁 - 𝗠𝗗 \n│「 ADIOS 👋 」\n└┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │👾  Se fue\n   │👾 Jamás te quisimos aquí\n   └───────────────┈ ⳹`
+await conn.sendMini(m.chat, packname, textbot, kick, img, img, canal, estilo)
+}}
