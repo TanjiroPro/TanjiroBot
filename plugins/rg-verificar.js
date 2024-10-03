@@ -1,49 +1,67 @@
-import db from '../lib/database.js'
 import { createHash } from 'crypto'
-import fs from 'fs'
-import fetch from 'node-fetch'
-
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 let handler = async function (m, { conn, text, usedPrefix, command }) {
-  let user = global.db.data.users[m.sender]
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+  let user = db.data.users[m.sender]
   let name2 = conn.getName(m.sender)
-  if (user.registered === true) return m.reply(`🤍 Ya estás registrado.\n\n*¿Quiere volver a registrarse?*\n\nUse este comando para eliminar su registro.\n*${usedPrefix}unreg* <Número de serie>`)
-  if (!Reg.test(text)) return m.reply(`🤍 Formato incorrecto.\n\nUso del comamdo: *${usedPrefix + command} nombre.edad*\nEjemplo : *${usedPrefix + command} ${name2}.18*`)
+  if (user.registered === true) throw `*[🛑Información 🛑]*\n\n*Usted ya esta registrado 🤨*\n\n*Use el siguiente comando para eliminar su registro*\n\n*${usedPrefix}unreg Número de serie*\n*Si no recuerda su número de serie , usar el siguiente comando 👇🏼*\n${usedPrefix}myns`
+  if (!Reg.test(text)) throw `${mg}👤 *Uso del comando correcto:* *${usedPrefix + command} nombre.edad*\n\n*•🚀 Ejemplo :* *${usedPrefix + command}* ${name2}.16`
   let [_, name, splitter, age] = text.match(Reg)
-  if (!name) return m.reply('🤍 El nombre no puede estar vacío.')
-  if (!age) return m.reply('🤍 La edad no puede estar vacía.')
-  if (name.length >= 100) return m.reply('🤍 El nombre es demasiado largo.' )
+  if (!name) throw '*[🛑 Información 🛑]*\n\n*El nombré no puede estar vacío, por favor intenta nuevamente colocando tu nombre*'
+  if (!age) throw '*[🛑 información 🛑]*\n\n*La edad no puede estar vacía*'
+  if (name.length >= 30) throw '*El nombre es demasiado largo , intenta con un nombre mas corto*' 
   age = parseInt(age)
-  if (age > 100) return m.reply('👴🏻 Wow el abuelo quiere jugar al bot.')
-  if (age < 5) return m.reply('🚼  hay un abuelo bebé jsjsj. ')
+  if (age > 100) throw '*Este bot , no acepta a viejos 👻*'
+  if (age < 5) throw '*No te crear habil , y pon tu edad verdadera 🤨*'
   user.name = name.trim()
   user.age = age
   user.regTime = + new Date
   user.registered = true
-  let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)        
-  let img = await (await fetch(`https://qu.ax/ELdN.mp4`)).buffer()
-  let txt = '*`📄 VERIFICACIÓN ACTUAL 📄`*\n'
-      txt += ` *∷∷∷∷∷∷∷∷∷∷∷∷∷∷∷*\n`
-      txt += `┊ *☁️ NOMBRE*\n`
-      txt += `┊ ⁘ \`${name}\`\n`
-      txt += `┊\n`
-      txt += `┊ *☁️ EDAD* \n`
-      txt += `┊ ⁘ \`${age} años\`\n`
-      txt += `┊\n`
-      txt += `┊ *☁️ FECHA*\n`
-      txt += `┊ ⁘ \`${fecha}\`\n`
-      txt += `┊\n`
-      txt += `┊ *☁️ IDENTIFICADOR SERIAL*\n`
-      txt += `┊ ⁘ \`${sn}\`\n`
-      txt += `╰┈┈┈┈┈┈┈┈┈┈┈┈•\n\n`
-      txt += '☁️ \```Escriba el siguiente comando para ver el menu completo:\```\n'
-      txt += `✪ *.allmenu*`
-await conn.sendMini(m.chat, botname, textbot, txt, img, img, canal, m)
-await m.react('✅')
+global.db.data.users[m.sender].money += 400
+global.db.data.users[m.sender].limit += 4
+global.db.data.users[m.sender].exp += 150
+global.db.data.users[m.sender].joincount += 2
+  let sn = createHash('md5').update(m.sender).digest('hex')
+await conn.sendMessage(m.chat, { 
+text: `*乂  R E G I S T R O  乂*\n
+*Nombre 👤 :* ${name}\n
+*Edad 🈴 :* ${age} años\n
+*Bono 🧿 :*\n4 Diamantes 💎\n5000 XP\n
+manda *.menu* para ver el menu`, 
+contextInfo:{
+forwardingScore: 9999999,
+isForwarded: true, 
+mentionedJid:[m.sender],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"thumbnail": gataImg.getRandom(), 
+"title": `乂  R E G I S T R O  乂`, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"mediaUrl": nnn, 
+"sourceUrl": nnn, 
 }
-handler.help = ['reg'].map(v => v + ' *<nombre.edad>*')
-handler.tags = ['rg']
+}
+}, { quoted: fkontak })  
+/* await conn.reply(m.chat, `┌───⊷ *𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎 𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐀𝐃𝐎*
+┆ *𝐍𝐨𝐦𝐛𝐫𝐞:*
+┆ ${name}
+┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┆ *𝐄𝐝𝐚𝐝:*
+┆ ${age} años
+┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┆ *𝐁𝐨𝐧𝐨* 
+┆ *$4 𝐃𝐢𝐚𝐦𝐚𝐧𝐭𝐞* 💎
+┆ *$400 𝐋𝐨𝐥𝐢𝐜𝐨𝐢𝐧𝐬*
+┆ *$150 𝐗𝐏*
+┆ *$2 𝐓𝐨𝐤𝐞𝐧𝐬*
+╰──────────────────`, , m)*/
+await m.reply(`${sn}`) 
+}
+handler.help = ['daftar', 'register'].map(v => v + ' <nama>.<umur>')
+handler.tags = ['xp']
 
-handler.command = ['verify', 'reg', 'register', 'registrar'] 
+handler.command = /^(verify|verificar|registrar|reg(ister)?)$/i
 
 export default handler
