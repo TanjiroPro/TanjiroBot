@@ -75,10 +75,10 @@ let vn = './media/audios/himno-potaxie.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true })}
 
-if (chat.audios && m.text.match(/(bienven)/gi)) {
+if (chat.audios && m.text.match(/(Bienvenido)/gi)) {    
 let vn = './media/audios/Bienvenido.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
-conn.sendMessage(m.chat, { audio: { url: vn }, contextInfo: { "externalAdReply": { "title": wm, "body": ``, "previewType": "PHOTO", "thumbnailUrl": null,"thumbnail": imagen1, "sourceUrl": `饾檧饾檱饾檮饾檹饾檧 饾樈饾檴饾檹 饾檪饾檱饾檴饾樈饾樇饾檱`, "showAdAttribution": true}}, ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: m })}
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
 if (chat.audios && m.text.match(/(chao|adios|rip|eliminar|eliminenle|basura|pablo)/gi)) {    
 let vn = './media/audios/basura.mp3'
