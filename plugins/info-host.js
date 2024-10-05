@@ -34,6 +34,6 @@ sourceUrl: ''}}},
 { quoted: fkontak})
 }
 handler.tags =['main'] 
-handler.help = ['host', 'hosting'] 
+handler.help = ['host'] 
 handler.command = ['host', 'Superiority', 'superhost', 'hosting']
 export default handler
