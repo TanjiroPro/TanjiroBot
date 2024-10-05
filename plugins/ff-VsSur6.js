@@ -6,7 +6,7 @@ handler.tags =['free']
 handler.help = ['Sur6'] 
 export default handler;
 global.Sur6 = ` 
-╭┈┈ *VERSUS 4x4*
+╭┈┈ *VERSUS 6x6*
 │
 │      • _Encargadx:_  
 │      • _Horario:_ (  )🇵🇪 (  )🇦🇷
