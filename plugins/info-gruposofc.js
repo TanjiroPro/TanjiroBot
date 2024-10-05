@@ -20,7 +20,7 @@ await conn.sendButton(m.chat, estado, '@yallico.owner', pp, [
 ['Dueño 👾', '.owner'], ['Donar 👾', '.donate']], null, [['Canal 👾', `${canal}`]], m)
 }
 handler.help = ['grupos']
-handler.tags = ['info']
+handler.tags = ['main']
 handler.command = /^(grupos|groups|support?)$/i
 
 export default handler
