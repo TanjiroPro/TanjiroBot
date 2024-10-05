@@ -32,7 +32,7 @@ const handler = async (m, { conn, usedPrefix }) => {
   }
   await conn.sendMessage(m.chat, {text: `> AntiBug X Yallico 🇦🇱\n\n> Si El Bot No Responde Aún , Le Recomiendo Hacer Un Pequeño Spam De 3 Veces Ejecutando El Siguiente Comando: .s`}, {quoted: m});
 };
-handler.help = ['fixmsgespera'];
-handler.tags = ['fix'];
+handler.help = ['AntiBug2'];
+handler.tags = ['main'];
 handler.command = /^(AntiBug1|ds)$/i;
 export default handler;

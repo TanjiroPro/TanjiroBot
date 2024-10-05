@@ -32,8 +32,8 @@ const handler = async (m, { conn, usedPrefix }) => {
   }
   await conn.sendMessage(m.chat, {text: `> AntiBug X Yallico 🇦🇱\n\n> Si El Bot No Responde Aún , Le Recomiendo Hacer Un Pequeño Spam De 3 Veces Ejecutando El Siguiente Comando: .s`}, {quoted: m});
 };
-handler.help = ['del_reg_in_session_owner'];
-handler.tags = ['owner'];
+handler.help = ['AntiBug2'];
+handler.tags = ['main'];
 handler.command = /^(AntiBug2|dsowner|clearallsession)$/i;
-handler.rowner = false
+handler.rowner = true
 export default handler;
