@@ -196,8 +196,8 @@ await conn.sendFile(m.chat, imagen_menu, 'menu.jpg', Styles(text.trim()), fakegi
     throw e
   }
 }
-handler.help = ['menucompleto']
-handler.tags = ['main']
+handler.help = ['allmenu']
+handler.tags = ['menu']
 handler.command = ['menuall', 'allmenú', 'allmenu'] 
 handler.register = true
 
