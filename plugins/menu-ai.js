@@ -201,7 +201,7 @@ await m.react('🤖')
   }
 }
 handler.help = ['menuai']
-handler.tags = ['main']
+handler.tags = ['menu']
 handler.command = ['menuai']
 
 export default handler
