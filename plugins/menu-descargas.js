@@ -201,7 +201,7 @@ await m.react('⛱️')
   }
 }
 handler.help = ['menudl']
-handler.tags = ['main']
+handler.tags = ['menu']
 handler.command = ['menudl']
 
 export default handler
