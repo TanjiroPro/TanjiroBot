@@ -201,7 +201,7 @@ await m.react('🌸')
   }
 }
 handler.help = ['menuanime']
-handler.tags = ['main']
+handler.tags = ['menu']
 handler.command = ['menuanime']
 
 export default handler
