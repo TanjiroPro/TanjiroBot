@@ -62,7 +62,7 @@ ${diskSpace ? `
 };
 
 handler.help = ['sistema'];
-handler.tags = ['info'];
+handler.tags = ['main'];
 handler.command = ['system', 'sistema'];
 handler.register = true;
 
