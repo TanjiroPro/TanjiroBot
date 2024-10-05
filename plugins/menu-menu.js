@@ -26,6 +26,7 @@ let Styles = (text, style = 1) => {
 let tags = {
   'pago': '💲 ᴘʀᴇᴄɪᴏ ᴛᴀɴᴊɪʀᴏ 💲',
   'main': '✨ ɪɴꜰᴏ ʙᴏᴛ ✨',
+  'menu': '👑 ᴍᴇɴᴜ 👑',
   'free': '👾 ꜰʀᴇᴇ ꜰɪʀᴇ 👾',
   'buscador': '🔎 ʙᴜꜱQᴜᴇᴅᴀꜱ 🔎',
   'search': '🔍 ꜱᴇᴀʀᴄʜ 🔍',
