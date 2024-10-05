@@ -201,7 +201,7 @@ await m.react('🔞')
   }
 }
 handler.help = ['labiblia']
-handler.tags = ['main']
+handler.tags = ['menu']
 handler.command = ['labiblia']
 
 export default handler
