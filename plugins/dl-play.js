@@ -9,18 +9,16 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
         let { title, description, thumbnail, videoId, timestamp, views, ago, url } = vid
         //const url = 'https://www.youtube.com/watch?v=' + videoId
         m.react('💿') 
-  let play = `*\`[YOUTUBE - PLAY]\`*
+  let play = `*\`[YOUTUBE - YALLICO]\`*
 
-> *\`TÍTULO:\`* ${vid.title}
-> *\`SUBIDO:\`* ${vid.ago}
-> *\`DURACIÓN:\`* ${vid.timestamp}
-> *\`VISTAS:\`* ${vid.views.toLocaleString()}`
+> *\`TÍTULO :\`* ${vid.title}
+> *\`DURACIÓN :\`* ${vid.timestamp}`
  await conn.sendButton(m.chat, play, mame, thumbnail, [
-    ['💿 𝗠 𝗣 𝟯', `${usedPrefix}fgmp3 ${url}`],
-    ['📀 𝗠 𝗣 𝟰', `${usedPrefix}fgmp4 ${url}`],
-['📁 𝗗 𝗢 𝗖', `${usedPrefix}ytmp3doc ${url}`],
-['📁 𝗗 𝗢 𝗖', `${usedPrefix}ytmp4doc ${url}`]
-  ], null, [['💫 𝗖 𝗔 𝗡 𝗔 𝗟', `${canal}`]], m)
+    ['Audio 🎶', `${usedPrefix}fgmp3 ${url}`],
+    ['Video 🎶', `${usedPrefix}fgmp4 ${url}`],
+['Audio Doc 🎶', `${usedPrefix}ytmp3doc ${url}`],
+['Video Doc 🎶', `${usedPrefix}ytmp4doc ${url}`]
+  ], null, [['Canal 🎶', `${canal}`]], m)
 }
 handler.help = ['play']
 handler.tags = ['dl']
